@@ -26,3 +26,7 @@ sleep(1)
 # Check response code of the secure domain
 print(secure_domain)
 print(urllib.request.urlopen(secure_domain).getcode())
+
+# This correctly returns the response code when the response code is 200, but:
+# TODO - still returns a 200 for a redirect.
+# TODO - also, instead of returning 404, it does something weird. 
