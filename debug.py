@@ -1,13 +1,10 @@
-# Basic version of homepage checker. 
-# Instead of scraping the page for <a> elements and checking those, this literally just checks the response code of the homepage.
-# This checks the http version, sleeps a bit, then checks the https version.
-
+# Simplified version of dual homepage checker purely for playing around and testing. 
 
 import urllib.request
 from time import sleep
 
 
-# Ask user what domain they want to check.
+# Identify one workig URL, and one broken URL.
 
 working  = "http://www.lloydspharmacy.com/en/info/alpecin"
 
@@ -17,6 +14,9 @@ broken = "http://www.lloydspharmacy.com/en/info/alpecin404"
 print(working)
 print(urllib.request.urlopen(working).getcode())
 
+
+
 # Check response code of broken address
+# TODO Fix this. It still identifies the broken address as a 404, but in an ugly, broken-looking way.
 print(broken)
 print(urllib.request.urlopen(broken).getcode())
