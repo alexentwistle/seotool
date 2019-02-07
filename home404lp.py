@@ -7,6 +7,7 @@
 # check response code
 
 import urllib.request
+from time import sleep
 from bs4 import BeautifulSoup
 
 domain = "http://www.lloydspharmacy.com/"
