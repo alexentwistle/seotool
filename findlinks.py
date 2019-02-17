@@ -10,9 +10,17 @@ headers = {'USER-AGENT': 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-u
 def find_links():
 	# Download an HTML document and supply user-agent headers.
 	html = requests.get(url, headers=headers)
-	# Create an instance of the BeautifulSoup class to parse our document.
+	# Create an instance of the BeautifulSoup class to parse the HTML document for <a> tags
 	soup = BeautifulSoup(html.content,"html.parser")
-	for a in soup.find_all('a', href=True):
-		print(a['href'])
-	
+	link_list = [a['href'] for a in soup.find_all('a', href=True)]
+	link_list.remove('#main')
+	# Print them out one per line.
+	print("\n".join(link_list))
+	for link in link_list:
+		status = requests.get(link,headers=headers).status_code
+		print(link,":",status)
+		
 find_links()
+
+
+# TODO This breaks as soon as it encounters a relative URL, so need to add code to turn these into absolute URLs their response codes are checked
