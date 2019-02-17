@@ -28,3 +28,11 @@ check(working_url)
 # TODO Fix this. It still identifies the broken address as a 404, but in an ugly, broken-looking way.
 print(broken_url)
 check(broken_url)
+
+
+
+
+
+# Check response code of working address
+print(working_url)
+check(working_url)
