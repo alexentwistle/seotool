@@ -3,6 +3,11 @@
 
 import requests
 from time import sleep
+from bs4 import BeautifulSoup
+
+# Add User-Agent header
+headers = {'USER-AGENT': 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'}
+
 
 # Ask user what domain they want to check.
 
@@ -28,6 +33,4 @@ sleep(0.8)
 print(error,':',requests.get(error))
 
 
-# This correctly returns the response code when the response code is 200, but:
-# TODO - still returns a 200 for a redirect.
-# TODO - also, instead of returning 404, it does something weird. 
+
