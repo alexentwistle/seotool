@@ -1,6 +1,7 @@
 import requests
 from time import sleep
 from bs4 import BeautifulSoup
+from urlparse import urljoin
 
 # Download an HTML document and use the BS library to parse this document.
 
