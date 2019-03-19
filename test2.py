@@ -14,13 +14,16 @@ def find_links():
 	soup = BeautifulSoup(html.content,"html.parser")
 	links = [a['href'] for a in soup.find_all('a', href=True)]
 	records = []
-	for results in links:
-		url = results
+	for url in links:
 		print('URL: ', url)
 		if url.startswith('#'):
 			continue
+		elif url.startswith('//'):
+			url = "https:" + url
+			records.append(url)
+			print('FULL URL: ', url)
 		elif url.startswith('/'):
-			url = "https.news.sky.com" + url
+			url = "https://news.sky.com" + url
 			records.append(url)
 			print('FULL URL: ', url)
 	
