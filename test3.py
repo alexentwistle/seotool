@@ -17,7 +17,8 @@ def find_links():
 	for url in links:
 		print('URL: ', url)
 		if url.startswith('#'):
-			continue
+			url = "https://news.sky.com/" + url
+			print('FULL URL: ', url)
 		elif url.startswith('//'):
 			url = "https:" + url
 			print('FULL URL: ', url)
